@@ -1,0 +1,14 @@
+{
+  "name": "pedrofurtado-fullcycle-3-0-docker-desafios-nginx-com-nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "faker": "^5.0.0",
+    "mysql": "^2.18.0"
+  }
+}

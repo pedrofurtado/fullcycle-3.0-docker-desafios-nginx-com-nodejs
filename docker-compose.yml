@@ -1,0 +1,30 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=people_db
+      - MYSQL_ROOT_PASSWORD=people
+      - MYSQL_PASSWORD=people
+      - MYSQL_USER=people
+  app:
+    restart: always
+    build:
+      context: ./src
+    depends_on:
+      - db
+    environment:
+      - DATABASE_HOST=db
+      - DATABASE_USERNAME=people
+      - DATABASE_PASSWORD=people
+      - DATABASE_NAME=people_db
+  web_server:
+    build:
+      context: ./nginx
+    restart: always
+    ports:
+      - '8080:80'
+    depends_on:
+      - app
